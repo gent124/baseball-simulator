@@ -71,7 +71,28 @@ export function ActionInfoModal({ event, onClose, onRunPlay }: Props) {
           {info.blocks.map((b) => (
             <div key={b.heading} className="modal__section">
               <h3 className="modal__h3">{b.heading}</h3>
-              <p className="modal__p">{b.body}</p>
+              {b.heading === "This play in the sim" && b.body.includes("Before:") && b.body.includes("After:") ? (
+                <p className="modal__p">
+                  {(() => {
+                    const beforeStart = b.body.indexOf("Before:")
+                    const afterStart = b.body.indexOf("After:")
+                    if (beforeStart === -1 || afterStart === -1 || afterStart <= beforeStart) {
+                      return b.body
+                    }
+                    const beforeText = b.body.slice(beforeStart + "Before:".length, afterStart).trim()
+                    const afterText = b.body.slice(afterStart + "After:".length).trim()
+                    return (
+                      <>
+                        <strong>Before:</strong> {beforeText}
+                        <br />
+                        <strong>After:</strong> {afterText}
+                      </>
+                    )
+                  })()}
+                </p>
+              ) : (
+                <p className="modal__p">{b.body}</p>
+              )}
             </div>
           ))}
         </div>

@@ -30,6 +30,10 @@ export function getActionInfoForEventType(type: GameEventType): ActionInfo {
             heading: "In this app",
             body: "Everyone (including the batter) moves up one base. If that movement carries a runner from 3rd across home, the batting team is credited a run. Only one runner per base in this model.",
           },
+          {
+            heading: "This play in the sim",
+            body: "Before: runner on 2nd, 1 out. After: batter to 1st and runner to 3rd, +0 runs, still 1 out.",
+          },
         ],
       }
     case "DOUBLE":
@@ -48,6 +52,10 @@ export function getActionInfoForEventType(type: GameEventType): ActionInfo {
           {
             heading: "In this app",
             body: "Same idea as a single, but every runner advances two bases. Someone scores only if that advance is enough to cross home from where they started (for example, from 2nd or 3rd with a two-base advance).",
+          },
+          {
+            heading: "This play in the sim",
+            body: "Before: runner on 1st, 0 outs. After: batter to 2nd and runner scores from 1st with the two-base advance rule, +1 run, still 0 outs.",
           },
         ],
       }
@@ -68,6 +76,10 @@ export function getActionInfoForEventType(type: GameEventType): ActionInfo {
             heading: "In this app",
             body: "All runners on 1st, 2nd, and 3rd score, and the batter is placed on 3rd. That’s a deliberate simplification for learning.",
           },
+          {
+            heading: "This play in the sim",
+            body: "Before: runners on 1st and 2nd, 1 out. After: both runners score, batter on 3rd, +2 runs, still 1 out.",
+          },
         ],
       }
     case "HOME_RUN":
@@ -86,6 +98,10 @@ export function getActionInfoForEventType(type: GameEventType): ActionInfo {
           {
             heading: "In this app",
             body: "Bases clear. The score goes up by one for the batter and one for each runner who was on base (at most four in one play when the bags were full).",
+          },
+          {
+            heading: "This play in the sim",
+            body: "Before: runners on 1st and 3rd, 2 outs. After: everyone scores and bases clear, +3 runs total (two runners plus batter), still 2 outs.",
           },
         ],
       }
@@ -106,6 +122,10 @@ export function getActionInfoForEventType(type: GameEventType): ActionInfo {
             heading: "In this app",
             body: "A fixed set of “who moves where” on a walk, including a run on a bases-loaded walk. Other base situations follow the same force idea without naming every real-life edge case.",
           },
+          {
+            heading: "This play in the sim",
+            body: "Before: bases loaded, 1 out. After: runner from 3rd is forced home, others advance one base, batter to 1st, +1 run, still 1 out.",
+          },
         ],
       }
     case "STRIKEOUT":
@@ -124,6 +144,10 @@ export function getActionInfoForEventType(type: GameEventType): ActionInfo {
           {
             heading: "In this app",
             body: "Adds one out, same as the “Out” button for inning and side changes. The play log uses “Strikeout” wording so you can tell it apart from a batted-ball out.",
+          },
+          {
+            heading: "This play in the sim",
+            body: "Before: runner on 1st, 1 out. After: bases unchanged, outs increase to 2, +0 runs.",
           },
         ],
       }
@@ -144,6 +168,10 @@ export function getActionInfoForEventType(type: GameEventType): ActionInfo {
             heading: "In this app",
             body: "Adds one out. On the 3rd out of the half, the bases clear and the game moves to the next part of the inning (or the next inning after the bottom of the previous one), like a new offensive turn.",
           },
+          {
+            heading: "This play in the sim",
+            body: "Before: runners on 1st and 2nd, 2 outs. After: third out recorded, half-inning ends, bases clear for next side, +0 runs on the out itself.",
+          },
         ],
       }
     case "RESET":
@@ -158,6 +186,10 @@ export function getActionInfoForEventType(type: GameEventType): ActionInfo {
           {
             heading: "In this app",
             body: "The whole board of inning, count of outs, bases, and both teams’ runs starts over.",
+          },
+          {
+            heading: "This play in the sim",
+            body: "Before: any bases/outs/score/inning. After: top 1st, bases empty, 0 outs, score reset to 0-0.",
           },
         ],
       }
