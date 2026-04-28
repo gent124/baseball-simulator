@@ -287,6 +287,7 @@ export default function App() {
 
       <ActionInfoModal
         event={pendingPlayInfo}
+        game={g}
         onClose={() => {
           setPendingPlayInfo(null)
         }}
