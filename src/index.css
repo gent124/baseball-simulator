@@ -1,0 +1,61 @@
+:root {
+  color-scheme: dark;
+  --t: #d1d5db;
+  --t-strong: #f3f4f6;
+  --t-muted: #8b95a1;
+  --bg: #0a0b0d;
+  --card: #13161c;
+  --card-hover: #1a1e28;
+  --card-active: #0f1116;
+  --border: #2a3038;
+  --border-focus: #3d4654;
+  --infield: #1f4b35;
+  --diamond-fill: #0b1410;
+  --base-stroke: #3f4a5a;
+  --base-off: #1c212a;
+  --base-on: #10b981;
+  --base-on-ring: #34d399;
+  --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  font: 16px/1.5 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--t);
+}
+
+#root {
+  min-height: 100%;
+}
+
+h1,
+h2 {
+  font: inherit;
+}
+
+code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 0.2rem;
+  background: #1c1f25;
+  color: #e2e4e8;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--base-on);
+  outline-offset: 2px;
+}
