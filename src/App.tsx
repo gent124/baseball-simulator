@@ -23,19 +23,24 @@ type AppModel = {
 
 const MAX_PBP = 32
 
+function withScoreSummary(summary: string, game: GameState): string {
+  return `${summary} (Score: A ${game.score.away} - H ${game.score.home})`
+}
+
 function nextModelAfterEvent(
   prev: AppModel,
   outGame: GameState,
   summary: string,
   event: GameEvent
 ): AppModel {
+  const summaryWithScore = withScoreSummary(summary, outGame)
   if (event.type === "RESET") {
-    return { game: outGame, lastAction: summary, playByPlay: [] }
+    return { game: outGame, lastAction: summaryWithScore, playByPlay: [] }
   }
   return {
     game: outGame,
-    lastAction: summary,
-    playByPlay: [summary, ...prev.playByPlay].slice(0, MAX_PBP),
+    lastAction: summaryWithScore,
+    playByPlay: [summaryWithScore, ...prev.playByPlay].slice(0, MAX_PBP),
   }
 }
 
